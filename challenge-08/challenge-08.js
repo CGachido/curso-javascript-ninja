@@ -108,6 +108,7 @@ const division = calculator("/");
 
 const mod = calculator("%");
 
+const teste = calculator("x");
 /*
 Faça uma operação com cada uma das funções criadas acima, mostrando o resultado
 no console.
@@ -116,3 +117,4 @@ console.log(subtraction(10, 20));
 console.log(multiplication(10, 20));
 console.log(division(10, 20));
 console.log(mod(50, 10));
+console.log(teste(50, 10));
