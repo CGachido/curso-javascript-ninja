@@ -1,70 +1,116 @@
-/*
-1. Envolva todo o conteúdo desse desafio em uma IIFE.
-2. Adicione a diretiva 'use strict';
-3. Crie um arquivo index.html e adicione esse script à ele.
-*/
+(function () {
+  'use strict';
 
-/*
-Declare uma variável chamada `name` que receba seu primeiro nome.
-Mostre no console todas as letras do seu nome separadas, com a frase:
-- "[LETRA] é a [POSIÇÃO]ª letra do meu nome."
-Ex: no caso do nome ser "Fernando", deve mostrar as frases:
-- "F é a 1ª letra do meu nome."
-- "e é a 2ª letra do meu nome."
-E assim por diante, até a última.
-*/
-console.log( 'As letras do seu nome:' );
-// ?
+  /*
+  1. Envolva todo o conteúdo desse desafio em uma IIFE.
+  2. Adicione a diretiva 'use strict';
+  3. Crie um arquivo index.html e adicione esse script à ele.
+  */
 
-/*
-- Declare uma variável chamada `fullName`, que receba seu nome completo,
-escrito no formato de slug (caixa baixa e palavras separadas por um traço).
-Ex: o nome "Fernando Daciuk" ficaria "fernando-daciuk"
-- Faça a primeira letra de cada nome ficar em caixa alta, e troque o traço
-por um espaço.
-- Detalhe: o código que você escrever abaixo deve funcionar para qualquer
-nome, então fique à vontade para usar as artimanhas que já viu até agora no
-curso para fazer isso funcionar corretamente :)
-- Mostre no console o nome no formato slug, e o resultado final. Use um
-console.log para cada formato.
-*/
-console.log( '\nNome convertido à partir de um slug:' );
-// ?
+  /*
+  Declare uma variável chamada `name` que receba seu primeiro nome.
+  Mostre no console todas as letras do seu nome separadas, com a frase:
+  - "[LETRA] é a [POSIÇÃO]ª letra do meu nome."
+  Ex: no caso do nome ser "Fernando", deve mostrar as frases:
+  - "F é a 1ª letra do meu nome."
+  - "e é a 2ª letra do meu nome."
+  E assim por diante, até a última.
+  */
+  console.log('As letras do seu nome:');
+  var name = 'Cassius';
+  // var totalCharacters = name.length;
+  for (var i = 0, totalCharacters = name.length; i < totalCharacters; i++) {
+    console.log(name.charAt(i) + ' é a ' + (i + 1) + 'ª letra do meu nome.');
+  }
 
-/*
-- Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
-cada nome por vírgula. Entre o penúltimo e o último nome, o separador deve
-ser um "e". No final, concatene com a frase: " são meus amigos.".
-O resultado final deve ficar mais ou menos assim:
-- "João, Maria, Roberto, Pedro e Marcos são meus amigos."
-- Detalhe: o código abaixo deve funcionar com um array de qualquer tamanho.
-5 nomes foi somente uma sugestão ;)
-*/
-console.log( '\nMeus amigos:' );
-// ?
+  /*
+  - Declare uma variável chamada `fullName`, que receba seu nome completo,
+  escrito no formato de slug (caixa baixa e palavras separadas por um traço).
+  Ex: o nome "Fernando Daciuk" ficaria "fernando-daciuk"
+  - Faça a primeira letra de cada nome ficar em caixa alta, e troque o traço
+  por um espaço.
+  - Detalhe: o código que você escrever abaixo deve funcionar para qualquer
+  nome, então fique à vontade para usar as artimanhas que já viu até agora no
+  curso para fazer isso funcionar corretamente :)
+  - Mostre no console o nome no formato slug, e o resultado final. Use um
+  console.log para cada formato.
+  */
+  console.log('\nNome convertido à partir de um slug:');
+  // var fullName = 'Cassius Sanches Gachido de Souza'
+  //   .split(' ')
+  //   .join('-')
+  //   .toLocaleLowerCase();
+  // console.log(fullName);
+  var fullName = 'cassius-sanches-gachido-de-souza';
 
-/*
-Usando o replace(), faça a string "Roberto" virar "Roberta".
-Mostre o resultado no console.
-*/
-console.log( '\nEra "Roberto", agora é:' );
-// ?
+  var newFullName = fullName
+    .split('-')
+    .map(function (name) {
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    })
+    .join(' ');
 
-/*
-Mostre no console a parte "nando" da string "Fernando". Use o método que
-faz a busca do final para o início da string.
-*/
-console.log( '\nParte de uma string:' );
-// ?
+  console.log(newFullName);
 
-/*
-Declare uma variável chamada `myName`, que receba o seu primeiro nome,
-escrito de forma natural.
-Mostre no console esse nome, mas com as letras intercalando entre maiúsculas
-e minúsculas.
-- Detalhe: o código abaixo deve funcionar da mesma forma para qualquer nome,
-de qualquer tamanho, escrito de qualquer forma.
-Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
-*/
-console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-// ?
+  /*
+  - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
+  cada nome por vírgula. Entre o penúltimo e o último nome, o separador deve
+  ser um "e". No final, concatene com a frase: " são meus amigos.".
+  O resultado final deve ficar mais ou menos assim:
+  - "João, Maria, Roberto, Pedro e Marcos são meus amigos."
+  - Detalhe: o código abaixo deve funcionar com um array de qualquer tamanho.
+  5 nomes foi somente uma sugestão ;)
+  */
+  console.log('\nMeus amigos:');
+  var names = ['Cassius', 'João', 'Maria', 'José', 'Marina'];
+  // var totalNames = names.length;
+  var phrase = names
+    .reduce(function (acc, curr, index) {
+      var separator = names.length - 1 === index ? ' e ' : ', ';
+      return acc + separator + curr;
+    })
+    .concat(' são meus amigos.');
+  console.log(phrase);
+  // console.log(
+  //   names.slice(0, names.length - 1).join(', ') +
+  //     ' e ' +
+  //     names.slice(names.length - 1, totalNames) +
+  //     ' são meus amigos.',
+  // );
+
+  /*
+  Usando o replace(), faça a string "Roberto" virar "Roberta".
+  Mostre o resultado no console.
+  */
+  console.log('\nEra "Roberto", agora é:');
+  console.log('Roberto'.replace('to', 'ta'));
+
+  /*
+  Mostre no console a parte "nando" da string "Fernando". Use o método que
+  faz a busca do final para o início da string.
+  */
+  console.log('\nParte de uma string:');
+  console.log('Fernando'.slice('Fernando'.lastIndexOf('nando')));
+  console.log('Fernando'.substring(8, 3));
+
+  /*
+  Declare uma variável chamada `myName`, que receba o seu primeiro nome,
+  escrito de forma natural.
+  Mostre no console esse nome, mas com as letras intercalando entre maiúsculas
+  e minúsculas.
+  - Detalhe: o código abaixo deve funcionar da mesma forma para qualquer nome,
+  de qualquer tamanho, escrito de qualquer forma.
+  Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
+  */
+  console.log('\nNome com letras intercaladas entre caixa alta e baixa:');
+  var myName = 'Cassius';
+  var myNewName = [];
+
+  for (var i = 0, len = myName.length; i < len; i++) {
+    myNewName.push(
+      i % 2 === 0 ? myName[i].toLowerCase() : myName[i].toUpperCase(),
+    );
+  }
+
+  console.log(myNewName.join(''));
+})();
