@@ -120,7 +120,13 @@
     function replaceCEP(message) {
       return message.replace('[CEP]', getClearCEP());
     }
+
+    return {
+      getMessage: getMessage,
+      replaceCEP: replaceCEP,
+    };
   }
 
+  window.app = app();
   app();
 })(window.DOM);
